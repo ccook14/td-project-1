@@ -1,7 +1,7 @@
 document.getElementById('loadQuote').addEventListener("click", () => {
 
 getRandomQuote();
-printQuote();
+printRandomQuote();
 
 });
 
@@ -26,17 +26,20 @@ var quotes = [
 //Logging for debugging purposes. Making sure quotes are displaying.
 console.log(quotes);
 
-
 var randomNumber = getRandomQuote();
-
+var printRandomQuote;
+//cycles through the array to display random quotes
 function getRandomQuote() {
  randomNumber = (Math.floor(Math.random() * quotes.length));
  return quotes[randomNumber];
+ getRandomQuote = printRandomQuote;
 }
 //Logging for debugging purposes. Making sure quotes and randomly cycling through.
 console.log(randomNumber);
 
-function printQuote(randomNumber) {
-  document.getElementById("quote").innerHTML = getRandomQuote.quote;
-	document.getElementById("source").innerHTML = getRandomQuote.source;
+//displays the random quote
+ function printQuote() {
+  getRandomQuote();
+  document.getElementById("quote").innerHTML = randomNumber.quote;
+	document.getElementById("source").innerHTML = randomNumber.source;
 }
