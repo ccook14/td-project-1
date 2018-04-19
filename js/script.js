@@ -18,7 +18,20 @@ var quotes = [
   source : 'Napolean Bonaparte'},
 
   {quote : 'If you aint first your last',
-  source : 'Ricky Bobby'}
+  source : 'Ricky Bobby'},
+
+  {quote : 'The day you think there is no improvements to be made is a sad one for any soccer player.',
+  source : 'Lionel Messi'},
+
+  {quote : 'Without football (soccer), my life is worth nothing.',
+  source : 'Cristiano Ronaldo'},
+
+  {quote : 'I once cried because I had no shoes to play soccer, but one day, I met a man who had no feet.',
+  source : 'Zinedine Zidane'},
+
+  {quote : 'To me, teamwork is the beauty of our sport, where you have five acting as one. You become selfless.',
+  source : 'Mike Krzyzewski'}
+
 
 ];
 //Logging for debugging purposes. Making sure quotes are displaying.
