@@ -1,11 +1,9 @@
-document.getElementById('loadQuote').addEventListener("click", () => {
+// event listener to respond to "Show another quote" button clicks
+// when user clicks anywhere on the button, the "printQuote" function is called
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+var timer = setInterval(printQuote, 30000);
 
-getRandomQuote();
-printRandomQuote();
-
-});
-
-//Quotes to use for the generator
+//Array of quotes to use for the generator
 var quotes = [
   {quote : 'The report of my death was an exaggeration.',
   source : 'Mark Twain'},
@@ -27,19 +25,44 @@ var quotes = [
 console.log(quotes);
 
 var randomNumber = getRandomQuote();
-var printRandomQuote;
+
 //cycles through the array to display random quotes
 function getRandomQuote() {
  randomNumber = (Math.floor(Math.random() * quotes.length));
  return quotes[randomNumber];
  getRandomQuote = printRandomQuote;
 }
+
 //Logging for debugging purposes. Making sure quotes and randomly cycling through.
 console.log(randomNumber);
-
+var printRandomQuote = getRandomQuote();
 //displays the random quote
+console.log(printRandomQuote);
  function printQuote() {
-  getRandomQuote();
-  document.getElementById("quote").innerHTML = randomNumber.quote;
-	document.getElementById("source").innerHTML = randomNumber.source;
+var thisQuote = getRandomQuote();
+
+var html = '<div id="quote-box">';
+html += '<p class="quote"> ' + thisQuote.quote + ' </p>';
+html += '<p class="source">' + thisQuote.source ;
+html += '</p> </div>';
+
+document.getElementById('quote-box').innerHTML = html;
+	changeBackgroundColor();
+}
+
+//Returns a string with a random color
+function getRandomColor(){
+	var randomColor = Math.floor((Math.random() + 1) * 255);
+	var color = "rgb(";
+	color += Math.floor(Math.random() * 255) + ', ';
+	color += Math.floor(Math.random() * 255) + ', ';
+	color += Math.floor(Math.random() * 255) + ')';
+	return color;
+}
+
+//Change background color to a random color
+function changeBackgroundColor(){
+
+	document.body.style.background = getRandomColor();
+
 }
